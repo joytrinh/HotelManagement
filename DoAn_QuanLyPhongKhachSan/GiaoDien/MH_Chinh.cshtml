@@ -1,12 +1,14 @@
 ﻿@{
     var NguoiDung = (XL_TiepTan)Session["NguoiDungDangNhap"];
-    if (NguoiDung != null)
+    if (NguoiDung == null)
     {
         Response.Redirect("MH_Dang_nhap");
     }
-
+    var DanhSachPhong = XL_LuuTru.DocDanhSachPhongTiepTanQuanLy(NguoiDung);
+    var DanhSachXem = DanhSachPhong;
     var Dia_chi_Media = XL_TheHien.Dia_chi_Media;
     var MaSoChucNang = Request["Th_MaSoChucNang"];
+    var ChuoiTraCuu = Request["Th_ChuoiTraCuu"];
     if (MaSoChucNang == null)
     {
         MaSoChucNang = "XemThongTinPhong";
@@ -14,8 +16,12 @@
     var ChuoiHTMLKetQua = "";
     if (MaSoChucNang == "XemThongTinPhong")
     {
-        var DanhSachPhongMaTiepTanQuanLy = XL_LuuTru.DanhSachPhongTheoKhuVuc(NguoiDung);
-        ChuoiHTMLKetQua = XL_TheHien.TaoChuoiHTMLDanhSachPhong(DanhSachPhongMaTiepTanQuanLy);
+        ChuoiHTMLKetQua = XL_TheHien.TaoChuoiHTMLDanhSachPhong(DanhSachPhong);
+    }
+    else if (MaSoChucNang == "TraCuuThongTinPhong")
+    {
+        DanhSachXem = XL_NghiepVu.TraCuuThongTinPhong(ChuoiTraCuu, DanhSachPhong);
+        ChuoiHTMLKetQua = XL_TheHien.TaoChuoiHTMLDanhSachPhong(DanhSachXem);
     }
 }
 <!DOCTYPE html>
@@ -39,13 +45,20 @@
             </div>
         </div>
         <div class="btn btn-outline-primary" style="background-color:white;color:blue">
-            Danh Sách Các Phòng Của Khách Sạn PET (Ứng dụng của Tiếp Tân @NguoiDung.HoTen)
-
+            Khách Sạn PET - Xin chào Tiếp tân @NguoiDung.HoTen <br />
+            Đây là danh sách phòng mà bạn đang quản lý
         </div>
     </div>
     <div class="CUA_SO_CHUC_NANG" style="background-color:gray;margin:10px">
         <div class="DANH_SACH_CHUC_NANG">
-
+            <div class="btn  CHUC_NANG">
+                <form method="post">
+                    <input name="Th_MaSoChucNang" type="hidden" value="TraCuuThongTinPhong" />
+                    <input name="Th_ChuoiTraCuu"
+                           spellcheck="false" autocomplete="off" />
+                    <button class="btn btn-primary" type="submit">Tra Cứu</button>
+                </form>
+            </div>
         </div>
     </div>
     <div class="CUA_SO_KET_QUA" style="background-color:white;margin:10px">
