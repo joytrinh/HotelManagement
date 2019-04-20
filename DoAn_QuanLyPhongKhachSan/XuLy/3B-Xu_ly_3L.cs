@@ -9,12 +9,14 @@ using Newtonsoft.Json;
 
 public class XL_TheHien
 {
-    public static string Dia_chi_Media = @"D:\STUDY\IT\Semester3\CNPM\Program\DoAn_QuanLyPhongKhachSan\Media";
+    public static string Dia_chi_Media = "Media";
     public static CultureInfo Dinh_dang_VN = CultureInfo.GetCultureInfo("vi-VN");
 
     public static string TaoChuoiHTMLDanhSachPhong(List<XL_Phong> DanhSachPhong)
     {
-        var ChuoiHTMLDanhSachPhong = "<div class='row'>";
+        //var ChuoiHTMLDanhSachPhong = "<div class='row'>";
+        Console.WriteLine(Dia_chi_Media);
+        var ChuoiHTMLDanhSachPhong = "<div class='container-fluid'>";
         DanhSachPhong.ForEach(Phong =>
         {
             var TrangThai = "";
@@ -22,17 +24,17 @@ public class XL_TheHien
                 TrangThai = "Đã cho thuê";
             else
                 TrangThai = "Còn trống";
-            var ChuoiHinh = $"<img  src='{Dia_chi_Media}/{Phong.MaSo}.png' " +
-                                     $" style='width:50px;height:50px' />";
-            var ChuoiThongTin = $"<div class='btn' style='text-align:left'> " +
-                            $"<br />Tên phòng: {Phong.Ten}" +
+            var ChuoiHinh = $"<img  src='{Dia_chi_Media}/{Phong.MaSo}.jpg' " +
+                                    "style='height:120px; display:block; margin-left:0px;' />";
+            var ChuoiThongTin = "<div style='text-align:left;'>" +
+                            $"<b>{Phong.Ten}</b>" +
                             $"<br />Trạng thái:{TrangThai}" +
                             $"<br />Loại phòng: {Phong.LoaiPhong.Ten }" +
                             $"<br />Đơn giá: {Phong.LoaiPhong.DonGia.ToString("n0", Dinh_dang_VN) }/đêm" +
                             $"<br />Số khách tối đa: {Phong.LoaiPhong.SoKhachToiDa } người" +
                             $"<br />Tiện nghi: {Phong.LoaiPhong.TienNghi }" +
                             $"<br />{Phong.KhuVuc.Ten}" + $"</div>";
-            var ChuoiHTML = $"<div class='col-md-3' style='margin-bottom:10px' >" +
+            var ChuoiHTML = "<div class='btn' style='margin:10px 10px 0px 0px;'>" +
                                $"{ChuoiHinh}" + $"{ChuoiThongTin}" +
                              "</div>";
             ChuoiHTMLDanhSachPhong += ChuoiHTML;
