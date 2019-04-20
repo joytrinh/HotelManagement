@@ -9,13 +9,11 @@ using Newtonsoft.Json;
 
 public class XL_TheHien
 {
-    public static string Dia_chi_Media = "Media";
+    public static string Dia_chi_Media = $"../../../Media";
     public static CultureInfo Dinh_dang_VN = CultureInfo.GetCultureInfo("vi-VN");
 
     public static string TaoChuoiHTMLDanhSachPhong(List<XL_Phong> DanhSachPhong)
     {
-        //var ChuoiHTMLDanhSachPhong = "<div class='row'>";
-        Console.WriteLine(Dia_chi_Media);
         var ChuoiHTMLDanhSachPhong = "<div class='container-fluid'>";
         DanhSachPhong.ForEach(Phong =>
         {
@@ -30,7 +28,7 @@ public class XL_TheHien
                             $"<b>{Phong.Ten}</b>" +
                             $"<br />Trạng thái:{TrangThai}" +
                             $"<br />Loại phòng: {Phong.LoaiPhong.Ten }" +
-                            $"<br />Đơn giá: {Phong.LoaiPhong.DonGia.ToString("n0", Dinh_dang_VN) }/đêm" +
+                            $"<br />Đơn giá: {Phong.LoaiPhong.DonGia.ToString("C0", Dinh_dang_VN) }/đêm" +
                             $"<br />Số khách tối đa: {Phong.LoaiPhong.SoKhachToiDa } người" +
                             $"<br />Tiện nghi: {Phong.LoaiPhong.TienNghi }" +
                             $"<br />{Phong.KhuVuc.Ten}" + $"</div>";

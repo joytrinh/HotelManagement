@@ -8,8 +8,6 @@ D:\STUDY\IT\Semester3\CNPM\Program\DoAn_QuanLyPhongKhachSan\DoAn_QuanLyPhongKhac
 D:\STUDY\IT\Semester3\CNPM\Program\DoAn_QuanLyPhongKhachSan\DoAn_QuanLyPhongKhachSan\DoAn_QuanLyPhongKhachSan\bin\System.Web.WebPages.Deployment.dll
 D:\STUDY\IT\Semester3\CNPM\Program\DoAn_QuanLyPhongKhachSan\DoAn_QuanLyPhongKhachSan\DoAn_QuanLyPhongKhachSan\bin\System.Web.WebPages.dll
 D:\STUDY\IT\Semester3\CNPM\Program\DoAn_QuanLyPhongKhachSan\DoAn_QuanLyPhongKhachSan\DoAn_QuanLyPhongKhachSan\bin\System.Web.WebPages.Razor.dll
-D:\STUDY\IT\Semester3\CNPM\Program\DoAn_QuanLyPhongKhachSan\DoAn_QuanLyPhongKhachSan\DoAn_QuanLyPhongKhachSan\bin\Newtonsoft.Json.pdb
-D:\STUDY\IT\Semester3\CNPM\Program\DoAn_QuanLyPhongKhachSan\DoAn_QuanLyPhongKhachSan\DoAn_QuanLyPhongKhachSan\bin\Newtonsoft.Json.xml
 D:\STUDY\IT\Semester3\CNPM\Program\DoAn_QuanLyPhongKhachSan\DoAn_QuanLyPhongKhachSan\DoAn_QuanLyPhongKhachSan\bin\System.Web.Helpers.xml
 D:\STUDY\IT\Semester3\CNPM\Program\DoAn_QuanLyPhongKhachSan\DoAn_QuanLyPhongKhachSan\DoAn_QuanLyPhongKhachSan\bin\System.Web.Razor.xml
 D:\STUDY\IT\Semester3\CNPM\Program\DoAn_QuanLyPhongKhachSan\DoAn_QuanLyPhongKhachSan\DoAn_QuanLyPhongKhachSan\bin\System.Web.WebPages.xml
