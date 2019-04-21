@@ -22,6 +22,7 @@ public class XL_Phong
     public int TrangThai;
     public XL_LoaiPhong LoaiPhong = new XL_LoaiPhong();
     public XL_KhuVuc KhuVuc = new XL_KhuVuc();
+    public List<XL_PhieuThuePhong> DanhSachPhieuThuePhong = new List<XL_PhieuThuePhong>();
 }
 public class XL_LoaiPhong
 {
@@ -33,6 +34,7 @@ public class XL_PhieuThuePhong
     public string MaSo, TenPhong;
     public DateTime NgayBatDau, NgayDuKienTra, NgayTraPhong;
     public List<XL_KhachHang> DanhSachKhachHang = new List<XL_KhachHang>();
+    public int TienThue;
 }
 public class XL_KhachHang
 {

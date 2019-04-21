@@ -116,4 +116,19 @@ public class XL_LuuTru
         });
         return DanhSach;
     }
+    public static string GhiPhieuThuePhong(XL_Phong Phong, XL_PhieuThuePhong Phieu)
+    {
+        string folderpath = @"D:\STUDY\IT\Semester3\CNPM\Program\DoAn_QuanLyPhongKhachSan\Du_lieu\Phong";
+        string filepath = Path.Combine(folderpath, Phong.MaSo + ".json");
+        string json = "";
+        using (StreamReader r = new StreamReader(filepath))
+        {
+            json = r.ReadToEnd();
+        }
+        XL_Phong p = JsonConvert.DeserializeObject<XL_Phong>(json);
+        p.DanhSachPhieuThuePhong.Add(Phieu);
+        string output = JsonConvert.SerializeObject(p, Formatting.Indented);
+        File.WriteAllText(filepath, output);
+        return "Ghi thành công";
+    }
 }
