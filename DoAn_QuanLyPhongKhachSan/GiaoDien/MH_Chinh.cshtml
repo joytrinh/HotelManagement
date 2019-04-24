@@ -26,6 +26,7 @@
     }
     if (Request["Th_MaSoPhong"] != null)
     {
+        ChuoiHTMLKetQua = "";
         var Phong = new XL_Phong();
         var PhieuThuePhong = new XL_PhieuThuePhong();
         var KhachHang1 = new XL_KhachHang();
@@ -34,18 +35,11 @@
         PhieuThuePhong.MaSo = Request["Th_MaSoPhieu"];
         Phong.MaSo = Request["Th_MaSoPhong"];
         PhieuThuePhong.TenPhong = Request["Th_TenPhong"];
-        PhieuThuePhong.NgayBatDau = Request["Th_NgayBatDau"].AsDateTime();
-        PhieuThuePhong.NgayDuKienTra = Request["Th_NgayDuKienTra"].AsDateTime();
-        PhieuThuePhong.NgayTraPhong = Request["Th_NgayTraPhong"].AsDateTime();
+        PhieuThuePhong.NgayBatDau = Convert.ToDateTime(Request["Th_NgayBatDau"]);
+        PhieuThuePhong.NgayDuKienTra = Convert.ToDateTime(Request["Th_NgayDuKienTra"]);
+        PhieuThuePhong.NgayTraPhong = Convert.ToDateTime(Request["Th_NgayTraPhong"]);
 
-        if (PhieuThuePhong.NgayTraPhong != null)
-        {
-            //PhieuThuePhong.TienThue = (Convert.ToInt32(PhieuThuePhong.NgayTraPhong) - Convert.ToInt32(PhieuThuePhong.NgayBatDau)) * Phong.LoaiPhong.DonGia;
-        }
-        else if (PhieuThuePhong.NgayTraPhong == null)
-        {
-            PhieuThuePhong.TienThue = 0;
-        }
+
         if (Request["Th_HoTenKhachHang1"] != null)
         {
             KhachHang1.HoTen = Request["Th_HoTenKhachHang1"];
@@ -58,11 +52,19 @@
             KhachHang2.CMND = Request["Th_CMND2"];
             PhieuThuePhong.DanhSachKhachHang.Add(KhachHang2);
         }
+        else
+        {
+            return;
+        }
         if (Request["Th_HoTenKhachHang3"] != null)
         {
             KhachHang3.HoTen = Request["Th_HoTenKhachHang3"];
             KhachHang3.CMND = Request["Th_CMND3"];
             PhieuThuePhong.DanhSachKhachHang.Add(KhachHang3);
+        }
+        else
+        {
+            return;
         }
 
         ChuoiHTMLKetQua = XL_LuuTru.GhiPhieuThuePhong(Phong, PhieuThuePhong);

@@ -126,6 +126,16 @@ public class XL_LuuTru
             json = r.ReadToEnd();
         }
         XL_Phong p = JsonConvert.DeserializeObject<XL_Phong>(json);
+        if (Phieu.NgayTraPhong != null)
+        {
+            TimeSpan ngay = Phieu.NgayTraPhong - Phieu.NgayBatDau;
+            int tongSoNgay = ngay.Days;
+            Phieu.TienThue = tongSoNgay * p.LoaiPhong.DonGia;
+        }
+        else if (Phieu.NgayTraPhong == null)
+        {
+            Phieu.TienThue = 0;
+        }
         p.DanhSachPhieuThuePhong.Add(Phieu);
         string output = JsonConvert.SerializeObject(p, Formatting.Indented);
         File.WriteAllText(filepath, output);
